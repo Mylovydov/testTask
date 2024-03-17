@@ -14,7 +14,7 @@ export default (env: TEnvVariables): webpack.Configuration => {
 
 	return buildWebpack({
 		port: env.port || 3000,
-		mode: env.mode,
+		mode: env.mode || 'development',
 		paths,
 		analyzer: env.analyzer
 	});
