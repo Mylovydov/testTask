@@ -1,0 +1,14 @@
+.userItem {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	&__avatar {
+		display: flex;
+		justify-content: center;
+	}
+	&__name {
+	}
+	&__info {
+	}
+}
