@@ -1,0 +1,20 @@
+@import 'src/styles/variables';
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	height: $header-height;
+
+	&__logo {
+		flex: 0 0 1.5rem;
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex: 0 0 18rem;
+	}
+}
