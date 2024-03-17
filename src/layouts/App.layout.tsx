@@ -27,9 +27,7 @@ const AppLayout: FC<TAppLayoutProps> = () => {
 				</AppContainer>
 			</header>
 			<main className={styles.app__body}>
-				<AppContainer>
-					<Outlet />
-				</AppContainer>
+				<Outlet />
 			</main>
 		</div>
 	);

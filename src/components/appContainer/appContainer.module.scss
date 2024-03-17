@@ -1,6 +1,17 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
 .appContainer {
 	max-width: 120.2rem;
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 1.6rem;
+
+	@include useMedia('max-width', $breakpoint-xxl) {
+		max-width: 93.6rem;
+	}
+
+	@include useMedia('max-width', $breakpoint-md) {
+		max-width: 73.6rem;
+	}
 }

@@ -1,7 +1,7 @@
 @import 'src/styles/variables';
 
 .typography {
-	line-height: $font-line-height;
+	line-height: $font-line-height-heading;
 }
 
 .h1 {
@@ -10,6 +10,7 @@
 
 .body {
 	font-size: $font-size-body;
+	line-height: $font-line-height-text;
 }
 
 .regular {
@@ -38,4 +39,8 @@
 
 .uppercase {
 	text-transform: uppercase;
+}
+
+.light {
+	color: $color-white;
 }

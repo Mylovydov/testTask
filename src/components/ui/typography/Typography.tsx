@@ -16,6 +16,7 @@ const Typography = forwardRef<HTMLElement, TTypographyProps>(
 			text,
 			weight = 'regular',
 			classes = '',
+			light = false,
 			noWrap,
 			textAlign = 'left',
 			children,
@@ -27,6 +28,7 @@ const Typography = forwardRef<HTMLElement, TTypographyProps>(
 		const typographyClassNames = getClassName({
 			[styles.typography]: true,
 			[styles[weight]]: weight,
+			[styles.light]: light,
 			[styles[textAlign]]: textAlign,
 			[styles.noWrap]: noWrap,
 			[styles.uppercase]: uppercase,

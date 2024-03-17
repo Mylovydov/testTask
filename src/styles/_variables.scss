@@ -1,16 +1,16 @@
 // COLORS
-$color-white: #FFF;
+$color-white: #fff;
 $color-black: #1b1b1b;
-$color-primary: #F4E041;
-$color-secondary: #00BDD3;
-$color-bg: #F8F8F8;
+$color-primary: #f4e041;
+$color-secondary: #00bdd3;
+$color-bg: #f8f8f8;
 
-$color-btn-hover: #FFE302;
-$color-btn-disabled: #B4B4B4;
-
+$color-btn-hover: #ffe302;
+$color-btn-disabled: #b4b4b4;
 
 // FONT
-$font-line-height: 150%;
+$font-line-height-heading: 100%;
+$font-line-height-text: 162.5%;
 $font-weight-regular: 400;
 
 $font-size-h1: 4rem;
@@ -23,7 +23,7 @@ $z-index-header: 100;
 // BORDER
 $border-button-radius: 8rem;
 $border-card-radius: 1rem;
-$border-input-radius: .1rem;
+$border-input-radius: 0.1rem;
 $border-sm-radius: 2rem;
 
 // TRANSITIONS
@@ -34,9 +34,10 @@ $transition-fn-main: ease;
 // BREAKPOINTS
 $breakpoint-xs: 319.9px;
 $breakpoint-sm: 479.9px;
-$breakpoint-md: 766.9px;
+$breakpoint-md: 767.9px;
 $breakpoint-lg: 991.9px;
 $breakpoint-xl: 1199.9px;
+$breakpoint-xxl: 1023.9px;
 
 // OTHER
 $header-height: 6rem;
