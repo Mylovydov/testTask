@@ -1,6 +1,45 @@
 import React from 'react';
 import styles from './get.module.scss';
-import { Button, Typography, UserItem } from '@/components';
+import { Button, TUserItemProps, Typography, UserItem } from '@/components';
+
+const items: TUserItemProps[] = [
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	},
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	},
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	},
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	},
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	},
+	{
+		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
+		position: 'Leading specialist of the department of cent...',
+		email: 'frontend_develop@gmail.com',
+		phone: '+38 (098) 278 44 24'
+	}
+];
 
 const GetSection = () => {
 	return (
@@ -11,12 +50,13 @@ const GetSection = () => {
 				</Typography>
 			</div>
 			<div className={styles.get__body}>
-				<UserItem
-					name="Salvador Stewart Flynn Thomas Salva Salve..."
-					position="Leading specialist of the department of cent..."
-					email="frontend_develop@gmail.com"
-					phone="+38 (098) 278 44 24"
-				/>
+				<ul className={styles.getGrid}>
+					{items.map((item, index) => (
+						<li className={styles.getGrid__item} key={index}>
+							<UserItem {...item} />
+						</li>
+					))}
+				</ul>
 			</div>
 			<div className={styles.get__action}>
 				<Button label="Show more" />

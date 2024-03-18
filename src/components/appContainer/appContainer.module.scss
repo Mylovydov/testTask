@@ -2,16 +2,17 @@
 @import 'src/styles/variables';
 
 .appContainer {
-	max-width: 120.2rem;
+	max-width: 129rem;
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 1.6rem;
+	padding: 0 6rem;
 
 	@include useMedia('max-width', $breakpoint-xxl) {
-		max-width: 93.6rem;
+		//max-width: 93.6rem;
+		padding: 0 3.2rem;
 	}
 
 	@include useMedia('max-width', $breakpoint-md) {
-		max-width: 73.6rem;
+		padding: 0 1.6rem;
 	}
 }
