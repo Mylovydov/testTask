@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Card, TUserItemProps, Typography } from '@/components';
+import { Avatar, Card, TUserItemProps, Typography } from '@/components';
 import styles from './userItem.module.scss';
 
 const UserItem: FC<TUserItemProps> = ({ name, position, email, phone }) => {
@@ -7,14 +7,9 @@ const UserItem: FC<TUserItemProps> = ({ name, position, email, phone }) => {
 		<Card>
 			<div className={styles.userItem}>
 				<div className={styles.userItem__avatar}>
-					<div
-						style={{
-							width: '7rem',
-							height: '7rem',
-							borderRadius: '50%',
-							backgroundColor: 'gray'
-						}}
-					/>
+					<div>
+						<Avatar src="https://frontend-test-assignment-api.abz.agency/images/users/65f887b9371b221003.jpg" />
+					</div>
 				</div>
 				<div className={styles.userItem__name}>
 					<Typography textAlign="center">{name}</Typography>
