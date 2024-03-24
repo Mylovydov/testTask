@@ -7,9 +7,15 @@ export type TTextFieldProps = {
 	label?: string;
 	error?: string;
 	helperText?: string;
+	fullWidth?: boolean;
 } & TFieldControlProps;
 
-const TextField: FC<TTextFieldProps> = ({ label, error, helperText }) => {
+const TextField: FC<TTextFieldProps> = ({
+	label,
+	error,
+	helperText,
+	fullWidth
+}) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const [isFilled, setIsFilled] = useState(false);
 
@@ -28,7 +34,8 @@ const TextField: FC<TTextFieldProps> = ({ label, error, helperText }) => {
 	const textFieldClasses = getClassName({
 		[styles.textField]: true,
 		[styles.active]: isFocused || isFilled,
-		[styles.error]: !!error
+		[styles.error]: !!error,
+		[styles.fullWidth]: fullWidth
 	});
 
 	return (

@@ -1,0 +1,58 @@
+@import 'src/styles/variables';
+
+.fileInput {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	min-width: 0;
+	max-width: 38rem;
+	height: 5.4rem;
+
+	&__button {
+		flex: 0 0 8.3rem;
+		border: 0.1rem solid $color-black;
+		margin: 0;
+		background: none;
+		border-radius: $border-input-radius 0 0 $border-input-radius;
+		height: 100%;
+		padding: 0 1.6rem;
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&__content {
+		flex: 1 1 auto;
+		display: flex;
+		align-items: center;
+		padding: 0 1.6rem;
+		color: $color-black;
+		height: 100%;
+		border-radius: 0 $border-input-radius $border-input-radius 0;
+		border: 0.1rem solid $color-grey;
+	}
+
+	&__item {
+		color: $color-dark-grey;
+	}
+
+	&.error {
+		.fileInput__button {
+			border-color: $color-error;
+			border-width: 0.2rem;
+		}
+
+		.fileInput__content {
+			border-color: $color-error;
+			border-top-width: 0.2rem;
+			border-right-width: 0.2rem;
+			border-bottom-width: 0.2rem;
+			border-left-width: 0;
+		}
+	}
+}
+
+.error {
+}
