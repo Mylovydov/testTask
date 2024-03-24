@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import styles from './textField.module.scss';
 import { getClassName } from '@/utils';
-import { Typography } from '@/components';
+import { FieldControl, TFieldControlProps, Typography } from '@/components';
 
-const TextField = () => {
+export type TTextFieldProps = {
+	label?: string;
+	error?: string;
+	helperText?: string;
+} & TFieldControlProps;
+
+const TextField: FC<TTextFieldProps> = ({ label, error, helperText }) => {
 	const [isFocused, setIsFocused] = useState(false);
+	const [isFilled, setIsFilled] = useState(false);
 
 	const handleFocus = () => {
 		setIsFocused(true);
@@ -14,43 +21,38 @@ const TextField = () => {
 		setIsFocused(false);
 	};
 
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setIsFilled(event.target.value !== '');
+	};
+
 	const textFieldClasses = getClassName({
 		[styles.textField]: true,
-		[styles.active]: isFocused
+		[styles.active]: isFocused || isFilled,
+		[styles.error]: !!error
 	});
 
-	// return (
-	// 	<label className={textFieldClasses}>
-	// 		<input
-	// 			className={styles.textField__input}
-	// 			type="text"
-	// 			onFocus={handleFocus}
-	// 			onBlur={handleBlur}
-	// 		/>
-	// 		<div className={styles.textField__wrapper}>
-	// 			<div className={styles.textField__left}></div>
-	// 			<div className={styles.textField__center}></div>
-	// 		</div>
-	// 	</label>
-	// );
-
 	return (
-		<div className={textFieldClasses}>
-			<label className={styles.textField__label}>
-				<Typography as="span">label</Typography>
-			</label>
-			<div className={styles.textField__inputWrapper}>
-				<input
-					className={styles.textField__input}
-					type="text"
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-				/>
-				<legend className={styles.textField__legend}>
-					<span>label</span>
-				</legend>
+		<FieldControl error={error} helperText={helperText}>
+			<div className={textFieldClasses}>
+				<label className={styles.textField__label}>
+					{label && <Typography as="span">{label}</Typography>}
+				</label>
+				<div className={styles.textField__inputWrapper}>
+					<input
+						className={styles.textField__input}
+						type="text"
+						onFocus={handleFocus}
+						onBlur={handleBlur}
+						onChange={handleChange}
+					/>
+					{label && (
+						<legend className={styles.textField__legend}>
+							<span>{label}</span>
+						</legend>
+					)}
+				</div>
 			</div>
-		</div>
+		</FieldControl>
 	);
 };
 

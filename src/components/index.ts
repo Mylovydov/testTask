@@ -4,3 +4,4 @@ export * from './ui';
 export * from './header';
 export * from './userItem';
 export * from './emptyState';
+export * from './errorBoundary';

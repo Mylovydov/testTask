@@ -6,7 +6,8 @@ import { TTypographyProps } from '@/components';
 const variantTags = {
 	h1: 'h1',
 	body: 'p',
-	button: 'span'
+	button: 'span',
+	caption: 'span'
 };
 
 const Typography = forwardRef<HTMLElement, TTypographyProps>(

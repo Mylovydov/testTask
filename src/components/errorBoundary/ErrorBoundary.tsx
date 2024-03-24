@@ -1,17 +1,11 @@
-import { Component, ReactNode } from 'react';
+import { Component } from 'react';
 import styles from './errorBoundary.module.scss';
-import { Typography } from '@/components';
+import {
+	TErrorBoundaryProps,
+	TErrorBoundaryState,
+	Typography
+} from '@/components';
 import image from '@/assets/error.png';
-
-export type TErrorBoundaryProps = {
-	children: ReactNode;
-	fallback?: ReactNode;
-};
-
-export type TErrorBoundaryState = {
-	hasError: boolean;
-	error: Error | null;
-};
 
 class ErrorBoundary extends Component<
 	TErrorBoundaryProps,

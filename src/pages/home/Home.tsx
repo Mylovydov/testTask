@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './home.module.scss';
 import { MainSection, PostSection } from '@/pages';
-import { AppContainer, TextField } from '@/components';
-import GetSectionContainer from '../../containers/home/GetSection.container';
-import ErrorBoundary from '@/components/errorBoundary/ErrorBoundary';
+import { AppContainer, ErrorBoundary, TextField } from '@/components';
+import { GetSectionContainer } from '@/containers';
 
 const HomePage = () => {
 	return (
@@ -22,7 +21,7 @@ const HomePage = () => {
 			</section>
 			<section className={styles.home__post}>
 				<AppContainer>
-					<TextField />
+					<TextField label="sfsdf" helperText="helperText" />
 					<PostSection />
 				</AppContainer>
 			</section>

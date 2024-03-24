@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import IntrinsicElements = JSX.IntrinsicElements;
 
 export type TBaseTypographyProps = {
-	variant?: 'h1' | 'body' | 'button';
+	variant?: 'h1' | 'body' | 'caption';
 	weight?: 'small' | 'regular' | 'medium' | 'semi' | 'bold';
 	classes?: string;
 	noWrap?: boolean;

@@ -17,7 +17,7 @@ const Button: FC<TButtonProps> = ({
 
 	return (
 		<button className={btmClasses} {...restBtnProps}>
-			<Typography classes={styles.label} variant="button" text={label} noWrap />
+			<Typography classes={styles.label} text={label} noWrap />
 		</button>
 	);
 };
