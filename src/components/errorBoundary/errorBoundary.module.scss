@@ -1,0 +1,13 @@
+.boundary {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+
+	&__img {
+		max-width: 40rem;
+	}
+
+	&__text {
+	}
+}

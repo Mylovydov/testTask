@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import logo from '@/assets/logo-white.png';
-import photo from '@/assets/IMG20231104161831.jpg';
 import Logo from '@/assets/software.svg';
 import AppContainer from '../appContainer/AppContainer';
 import { Button } from '@/components';
@@ -12,7 +11,6 @@ const App = () => {
 			<AppContainer>
 				<h1>Hello, world!</h1>
 				<img src={logo} alt="Logo" />
-				<img width={100} src={photo} alt="Logo" />
 				<h2>{count}</h2>
 				<div>
 					<Logo width={200} height={200} />

@@ -3,6 +3,7 @@ import styles from './home.module.scss';
 import { MainSection, PostSection } from '@/pages';
 import { AppContainer, TextField } from '@/components';
 import GetSectionContainer from '../../containers/home/GetSection.container';
+import ErrorBoundary from '@/components/errorBoundary/ErrorBoundary';
 
 const HomePage = () => {
 	return (
@@ -14,7 +15,9 @@ const HomePage = () => {
 			</section>
 			<section className={styles.home__get}>
 				<AppContainer>
-					<GetSectionContainer />
+					<ErrorBoundary>
+						<GetSectionContainer />
+					</ErrorBoundary>
 				</AppContainer>
 			</section>
 			<section className={styles.home__post}>
