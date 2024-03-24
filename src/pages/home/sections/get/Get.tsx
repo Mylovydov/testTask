@@ -1,47 +1,49 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './get.module.scss';
 import { Button, TUserItemProps, Typography, UserItem } from '@/components';
+import Spinner from '../../../../components/ui/spinner/Spinner';
+import EmptyState from '../../../../components/emptyState/EmptyState';
 
-const items: TUserItemProps[] = [
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	},
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	},
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	},
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	},
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	},
-	{
-		name: 'Salvador Stewart Flynn Thomas Salva Salve...',
-		position: 'Leading specialist of the department of cent...',
-		email: 'frontend_develop@gmail.com',
-		phone: '+38 (098) 278 44 24'
-	}
-];
+export type TGetSectionProps = {
+	items: TUserItemProps[];
+	onFetchMore: () => void;
+	isDataFetching?: boolean;
+	isInitDataLoading?: boolean;
+	hasNextPage?: boolean;
+};
 
-const GetSection = () => {
+const GetSection: FC<TGetSectionProps> = ({
+	items = [],
+	onFetchMore,
+	isDataFetching = false,
+	isInitDataLoading = false,
+	hasNextPage = false
+}) => {
+	const hasItems = !!items.length;
+
+	const buttonMarkup = hasItems && hasNextPage && (
+		<div className={styles.get__action}>
+			<Button
+				onClick={onFetchMore}
+				disabled={isDataFetching}
+				label="Show more"
+			/>
+		</div>
+	);
+
+	const spinnerMarkup = isInitDataLoading && <Spinner />;
+	const userItemsMarkup =
+		!isInitDataLoading && hasItems ? (
+			<ul className={styles.getGrid}>
+				{items.map(item => (
+					<li className={styles.getGrid__item} key={item.id}>
+						<UserItem {...item} />
+					</li>
+				))}
+			</ul>
+		) : (
+			<EmptyState title="No users found" />
+		);
 	return (
 		<div className={styles.get}>
 			<div className={styles.get__title}>
@@ -50,17 +52,10 @@ const GetSection = () => {
 				</Typography>
 			</div>
 			<div className={styles.get__body}>
-				<ul className={styles.getGrid}>
-					{items.map((item, index) => (
-						<li className={styles.getGrid__item} key={index}>
-							<UserItem {...item} />
-						</li>
-					))}
-				</ul>
+				{spinnerMarkup}
+				{userItemsMarkup}
 			</div>
-			<div className={styles.get__action}>
-				<Button label="Show more" />
-			</div>
+			{buttonMarkup}
 		</div>
 	);
 };

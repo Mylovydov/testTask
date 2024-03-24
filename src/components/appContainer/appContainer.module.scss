@@ -8,7 +8,6 @@
 	padding: 0 6rem;
 
 	@include useMedia('max-width', $breakpoint-xxl) {
-		//max-width: 93.6rem;
 		padding: 0 3.2rem;
 	}
 

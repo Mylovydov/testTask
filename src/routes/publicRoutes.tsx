@@ -1,7 +1,6 @@
-import { ErrorPage } from '@/pages';
+import { ErrorPage, HomePage } from '@/pages';
 import { AppLayout } from '@/layouts';
 import { HOME_PATH } from '@/utils';
-import { HomeContainer } from '@/containers';
 
 const publicRoutes = [
 	{
@@ -14,7 +13,7 @@ const publicRoutes = [
 				children: [
 					{
 						index: true,
-						element: <HomeContainer />
+						element: <HomePage />
 					}
 				]
 			}

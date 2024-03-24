@@ -5,6 +5,7 @@ import path from 'path';
 
 export default (env: TEnvVariables): webpack.Configuration => {
 	const paths: TBuildPaths = {
+		env: path.resolve(__dirname, '.env'),
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
 		public: path.resolve(__dirname, 'public'),

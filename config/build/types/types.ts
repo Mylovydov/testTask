@@ -4,6 +4,7 @@ export type TBuildPaths = {
 	output: string;
 	src: string;
 	public: string;
+	env: string;
 };
 
 export type TBuildMode = 'development' | 'production';

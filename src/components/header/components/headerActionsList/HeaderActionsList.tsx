@@ -4,8 +4,8 @@ import styles from './headerActionsList.module.scss';
 
 const HeaderActionsList: FC<THeaderActionsListProps> = ({ items = [] }) => (
 	<ul className={styles.headerActionsList}>
-		{items.map(({ label, onClick }) => (
-			<Button label={label} onClick={onClick} />
+		{items.map(({ label, onClick }, i) => (
+			<Button label={label} onClick={onClick} key={i} />
 		))}
 	</ul>
 );

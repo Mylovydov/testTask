@@ -3,6 +3,9 @@ import { SnackbarProviderProps } from 'notistack';
 import { NotifyProvider } from '@/providers';
 import { RouterProvider } from 'react-router-dom';
 import { appRouter } from '@/routes';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const MainProvider = () => {
 	const notifyOpt = useMemo(
@@ -23,9 +26,11 @@ const MainProvider = () => {
 	);
 
 	return (
-		<NotifyProvider {...notifyOpt}>
-			<RouterProvider router={appRouter} />
-		</NotifyProvider>
+		<QueryClientProvider client={queryClient}>
+			<NotifyProvider {...notifyOpt}>
+				<RouterProvider router={appRouter} />
+			</NotifyProvider>
+		</QueryClientProvider>
 	);
 };
 

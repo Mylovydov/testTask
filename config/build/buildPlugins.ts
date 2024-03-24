@@ -1,4 +1,4 @@
-import type { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
@@ -6,11 +6,14 @@ import { TBuildOptions } from './types/types';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import path from 'path';
 
+import dotenv from 'dotenv';
+
 export function buildPlugins({
 	mode,
 	paths,
 	analyzer
 }: TBuildOptions): Configuration['plugins'] {
+	dotenv.config({ path: paths.env });
 	const isDev = mode === 'development';
 	const isProd = mode === 'production';
 
@@ -18,6 +21,9 @@ export function buildPlugins({
 		new HtmlWebpackPlugin({
 			template: paths.html,
 			favicon: path.resolve(paths.public, 'favicon.ico')
+		}),
+		new webpack.DefinePlugin({
+			'process.env': JSON.stringify(process.env)
 		})
 	];
 
