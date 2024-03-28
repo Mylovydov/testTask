@@ -15,6 +15,10 @@
 	}
 }
 
+.postContainer {
+	max-width: 50rem;
+}
+
 .mainContainer {
 	@include useMedia('max-width', $breakpoint-xxl) {
 		padding: 0;

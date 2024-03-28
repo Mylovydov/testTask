@@ -1,28 +1,26 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import styles from './radio.module.scss';
-import { Typography } from '@/components';
+import { TRadioProps, Typography } from '@/components';
 
-export type TRadioProps = {
-	label?: string;
-	checked?: boolean;
-	onChange?: () => void;
-};
+const Radio = forwardRef<HTMLInputElement, TRadioProps>(
+	({ label, ...rest }, ref) => {
+		return (
+			<label className={styles.radio}>
+				<input
+					{...rest}
+					type="radio"
+					className={styles.radio__input}
+					ref={ref}
+				/>
+				<span className={styles.radio__custom} />
+				<span className={styles.radio__label}>
+					<Typography>{label}</Typography>
+				</span>
+			</label>
+		);
+	}
+);
 
-const Radio: FC<TRadioProps> = ({ label, checked, onChange }) => {
-	return (
-		<label className={styles.radio}>
-			<input
-				type="radio"
-				checked={checked}
-				onChange={onChange}
-				className={styles.radio__input}
-			/>
-			<span className={styles.radio__custom} />
-			<span className={styles.radio__label}>
-				<Typography>{label}</Typography>
-			</span>
-		</label>
-	);
-};
+Radio.displayName = 'Radio';
 
 export default Radio;

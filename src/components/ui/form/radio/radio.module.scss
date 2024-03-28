@@ -1,21 +1,26 @@
 @import 'src/styles/variables';
 
 .radio {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	margin-bottom: 8px;
-
-	&__input {
-		display: none; /* Скрываем оригинальный инпут */
-	}
+	cursor: pointer;
+	gap: 1.2rem;
 
 	&__custom {
-		width: 2rem;
+		flex: 0 0 2rem;
 		height: 2rem;
 		border: 0.1rem solid $color-secondary;
 		border-radius: 50%;
-		margin-right: 8px;
 		position: relative;
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&__label {
+		flex: 1 1 auto;
+		white-space: nowrap;
 	}
 
 	.radio__input:checked + .radio__custom::after {
@@ -28,8 +33,5 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-	}
-
-	&__label {
 	}
 }

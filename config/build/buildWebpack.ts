@@ -23,6 +23,6 @@ export function buildWebpack(options: TBuildOptions): webpack.Configuration {
 			rules: buildLoaders(options)
 		},
 		resolve: buildResolvers(options),
-		devServer: isDev && buildDevServer(options)
+		devServer: isDev ? buildDevServer(options) : undefined
 	};
 }

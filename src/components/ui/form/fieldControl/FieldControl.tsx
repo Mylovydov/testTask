@@ -1,11 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 import styles from './fieldControl.module.scss';
-import { Typography } from '@/components';
-
-export type TFieldControlProps = {
-	helperText?: string;
-	error?: string;
-} & PropsWithChildren;
+import { TFieldControlProps, Typography } from '@/components';
 
 const FieldControl: FC<TFieldControlProps> = ({
 	children,

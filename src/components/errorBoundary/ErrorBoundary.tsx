@@ -34,7 +34,7 @@ class ErrorBoundary extends Component<
 						<img className={styles.boundary__img} src={image} alt="Error" />
 						<div className={styles.boundary__text}>
 							<Typography textAlign="center">
-								{this.state.error.toString()}
+								{this.state.error?.toString()}
 							</Typography>
 						</div>
 					</div>

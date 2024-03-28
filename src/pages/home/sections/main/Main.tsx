@@ -9,11 +9,7 @@ const MainSection = () => {
 		<div className={styles.main}>
 			<div className={styles.main__bg}>
 				{/*TODO: need create srcset*/}
-				<img
-					src={image}
-					// src="https://task-images-bucket.s3.eu-west-2.amazonaws.com/home+(1).jpeg"
-					alt=""
-				/>
+				<img src={image} alt="Main image" />
 			</div>
 			<div className={styles.main__content}>
 				<div className={styles.content}>

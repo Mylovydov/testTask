@@ -41,6 +41,7 @@ const GetSectionContainer = () => {
 
 	return (
 		<GetSection
+			title="Working with GET request"
 			items={userItems}
 			onFetchMore={fetchNextPage}
 			isDataFetching={isDataFetching}

@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from './home.module.scss';
-import { MainSection, PostSection } from '@/pages';
-import { AppContainer, ErrorBoundary, TextField } from '@/components';
-import { GetSectionContainer } from '@/containers';
-import FileInput from '../../components/ui/form/fileInput/FileInput';
-import Radio from '../../components/ui/form/radio/Radio';
+import { MainSection } from '@/pages';
+import { AppContainer, ErrorBoundary } from '@/components';
+import { GetSectionContainer, PostSectionContainer } from '@/containers';
 
 const HomePage = () => {
 	return (
@@ -22,11 +20,10 @@ const HomePage = () => {
 				</AppContainer>
 			</section>
 			<section className={styles.home__post}>
-				<AppContainer>
-					<TextField label="sfsdf" helperText="helperText" />
-					<FileInput label="sfsdf" helperText="helperText" />
-					<Radio label="sfsfsdf" />
-					<PostSection />
+				<AppContainer classes={styles.postContainer}>
+					<ErrorBoundary>
+						<PostSectionContainer />
+					</ErrorBoundary>
 				</AppContainer>
 			</section>
 		</div>
