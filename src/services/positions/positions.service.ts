@@ -17,7 +17,7 @@ class PositionsService {
 			if (!res.data.success) {
 				return {
 					...data,
-					error: res.data.message
+					error: res.data.message || 'Something went wrong'
 				};
 			}
 
