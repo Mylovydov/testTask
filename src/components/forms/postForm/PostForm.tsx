@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import styles from './postForm.module.scss';
 import {
 	Button,
@@ -19,11 +19,13 @@ const PostForm: FC<TPostFormProps> = ({
 	isLoading,
 	options = []
 }) => {
+	const [file, setFile] = useState<File | null>(null);
 	const {
 		formState: { errors },
 		handleSubmit,
 		register,
-		control
+		control,
+		reset
 	} = useForm<TPostFormValues>({
 		resolver: zodResolver(postFormSchema),
 		defaultValues
@@ -31,6 +33,17 @@ const PostForm: FC<TPostFormProps> = ({
 
 	const onHandleSubmit = (data: TPostFormValues) => {
 		onSubmit && onSubmit(data);
+		reset();
+		setFile(null);
+	};
+
+	const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const selectedFile = event.target.files?.[0];
+		if (!selectedFile) {
+			return;
+		}
+
+		setFile(selectedFile);
 	};
 
 	return (
@@ -85,16 +98,24 @@ const PostForm: FC<TPostFormProps> = ({
 					</div>
 					<div className={styles.inputs__file}>
 						<FileInput
+							file={file}
 							label="Upload your photo"
 							accept="image/jpg, image/jpeg"
 							error={errors.photo?.message}
-							{...register('photo')}
+							{...register('photo', {
+								onChange: event => {
+									handleFileChange(event);
+								}
+							})}
 						/>
 					</div>
 				</div>
 			</div>
 			<div className={styles.postForm__action}>
-				<Button label={isLoading ? 'Submitting...' : 'Sign up'} />
+				<Button
+					disabled={isLoading}
+					label={isLoading ? 'Register...' : 'Sign up'}
+				/>
 			</div>
 		</form>
 	);

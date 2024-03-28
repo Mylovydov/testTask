@@ -1,2 +1,7 @@
 export { default as usersService } from './users.service';
-export type { TFetchUsersResponse, TQueryFnData } from './users.types';
+export type {
+	TFetchUsersResponse,
+	TQueryFnData,
+	TRegisterUserResponse,
+	TTokenResponse
+} from './users.types';

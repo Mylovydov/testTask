@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import { PostSection } from '@/pages';
 import { TOption, TPostFormValues } from '@/components';
-import { useQuery } from '@tanstack/react-query';
-import { positionsService } from '@/services';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { positionsService, usersService } from '@/services';
 import { useNotifyContext } from '@/hooks';
 
 const postFormDefaultValues = {
@@ -10,45 +10,65 @@ const postFormDefaultValues = {
 	email: '',
 	phone: '',
 	positionId: '',
-	photo: ''
+	photo: null
 };
 
 const PostSectionContainer = () => {
 	const { open } = useNotifyContext();
-	const { data, isLoading, error } = useQuery({
+	const {
+		data: positionsData,
+		isLoading: isPositionsLoading,
+		error: positionError
+	} = useQuery({
 		queryKey: [positionsService.cacheKey],
 		queryFn: positionsService.fetchPositions
 	});
+	const {
+		mutate,
+		data: userData,
+		error: userError,
+		isPending: isUserPending
+	} = useMutation({
+		mutationFn: usersService.registerUser
+	});
+
+	const queryClient = useQueryClient();
 
 	useEffect(() => {
-		if (error) {
-			return open({ message: error.message, variant: 'error' });
-		}
-	}, [error, open]);
-
-	useEffect(() => {
-		if (!data) {
+		if (!userData) {
 			return;
 		}
 
-		if (data.error) {
-			open({ message: data.error, variant: 'error' });
+		open({ message: userData.message, variant: 'success' });
+	}, [open, userData]);
+
+	useEffect(() => {
+		if (positionError) {
+			open({ message: positionError.message, variant: 'error' });
 		}
-	}, [data, open]);
+
+		if (userError) {
+			open({ message: userError.message, variant: 'error' });
+		}
+	}, [positionError, open, userError]);
 
 	const onSubmit = (data: TPostFormValues) => {
-		console.log(data);
+		mutate(data, {
+			onSuccess: () => {
+				queryClient.invalidateQueries({ queryKey: [usersService.cacheKey] });
+			}
+		});
 	};
 
 	const prepareOptions = useMemo<TOption[]>(() => {
-		if (!data?.positions) {
+		if (!positionsData?.positions) {
 			return [];
 		}
-		return data.positions.map(item => ({
+		return positionsData.positions.map(item => ({
 			label: item.name,
 			value: item.id.toString()
 		}));
-	}, [data?.positions]);
+	}, [positionsData?.positions]);
 
 	return (
 		<PostSection
@@ -56,7 +76,8 @@ const PostSectionContainer = () => {
 			title="Working with POST request"
 			defaultValues={postFormDefaultValues}
 			onSubmit={onSubmit}
-			isLoading={isLoading}
+			isLoading={isUserPending}
+			isPositionsLoading={isPositionsLoading}
 		/>
 	);
 };

@@ -3,10 +3,14 @@ import { TPosition } from '@/types';
 export type TFetchPositionsResponse = {
 	success: boolean;
 	positions: TPosition[];
-	message?: string;
+};
+
+export type TErrorResponse = {
+	success: boolean;
+	message: string;
+	fails: object;
 };
 
 export type TFetchPositionsReturn = {
-	error: string | null;
 	positions: TPosition[];
 };

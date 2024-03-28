@@ -5,4 +5,6 @@ export type TFileInputProps = {
 	helperText?: string;
 	label?: string;
 	btnLabel?: string;
+	file?: File | null;
+	onFileChange?: () => void;
 } & InputHTMLAttributes<HTMLInputElement>;

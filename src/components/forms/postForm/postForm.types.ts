@@ -5,12 +5,13 @@ export type TPostFormValues = {
 	email: string;
 	phone: string;
 	positionId: string;
-	photo: string;
+	photo: FileList | null;
 };
 
 export type TPostFormProps = {
 	defaultValues: TPostFormValues;
 	onSubmit?: (data: TPostFormValues) => void;
+	isPositionsLoading?: boolean;
 	isLoading?: boolean;
 	options: TOption[];
 };

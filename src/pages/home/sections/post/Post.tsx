@@ -5,7 +5,7 @@ import { TPostSectionProps } from '@/pages';
 
 const PostSection: FC<TPostSectionProps> = ({
 	title,
-	isLoading,
+	isPositionsLoading,
 	options = [],
 	...rest
 }) => {
@@ -19,10 +19,10 @@ const PostSection: FC<TPostSectionProps> = ({
 		</div>
 	);
 
-	const spinnerMarkup = isLoading && <Spinner />;
+	const spinnerMarkup = isPositionsLoading && <Spinner />;
 
 	const formMarkup =
-		!isLoading && hasItems ? (
+		!isPositionsLoading && hasItems ? (
 			<PostForm options={options} {...rest} />
 		) : (
 			<EmptyState title="No positions found" />

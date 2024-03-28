@@ -1,11 +1,4 @@
-import React, {
-	ChangeEvent,
-	FC,
-	forwardRef,
-	useId,
-	useRef,
-	useState
-} from 'react';
+import React, { ChangeEvent, FC, forwardRef, useId, useRef } from 'react';
 import styles from './fileInput.module.scss';
 import { FieldControl, TFileInputProps, Typography } from '@/components';
 import { getClassName } from '@/utils';
@@ -23,21 +16,16 @@ const FileInput: FC<TFileInputProps> = forwardRef<
 			accept = 'image/*',
 			btnLabel = 'Upload',
 			onChange,
+			file,
 			...rest
 		},
 		ref
 	) => {
 		const inputRef = useRef<HTMLInputElement | null>(null);
-		const [file, setFile] = useState<File | null>(null);
 		const customId = useId();
 		const inputId = id || customId;
 
 		const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-			const selectedFile = event.target.files?.[0];
-			if (!selectedFile) {
-				return;
-			}
-			setFile(selectedFile);
 			onChange && onChange(event);
 		};
 

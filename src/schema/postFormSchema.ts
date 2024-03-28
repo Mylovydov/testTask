@@ -23,9 +23,10 @@ const postFormSchema = z.object({
 			'The photo is too big. Allowable size 70x70'
 		)
 		.refine(file => file[0].size <= MAX_FILE_SIZE, 'Max photo size is 5MB.')
-		.refine(file => {
-			return ACCEPTED_IMAGE_TYPES.includes(file[0].type);
-		}, 'Only .jpg, .jpeg, formats are supported!')
+		.refine(
+			file => ACCEPTED_IMAGE_TYPES.includes(file[0].type),
+			'Only .jpg, .jpeg, formats are supported!'
+		)
 });
 
 export default postFormSchema;
