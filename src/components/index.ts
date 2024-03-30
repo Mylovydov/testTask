@@ -4,5 +4,5 @@ export * from './header';
 export * from './userItem';
 export * from './emptyState';
 export * from './forms';
-export * from './errorBoundary';
 export * from './renderList';
+export * from './info';

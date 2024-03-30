@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './home.module.scss';
-import { MainSection } from '@/pages';
-import { AppContainer, ErrorBoundary } from '@/components';
-import { GetSectionContainer, PostSectionContainer } from '@/containers';
+import { GetSection, MainSection, PostSection, THomePageProps } from '@/pages';
+import { AppContainer } from '@/components';
 
-const HomePage = () => {
+const HomePage: FC<THomePageProps> = ({
+	users,
+	onFetchMore,
+	isDataFetching,
+	isInitDataLoading,
+	hasNextPage,
+	...postSectonProps
+}) => {
 	return (
 		<div className={styles.home}>
 			<section className={styles.home__main}>
@@ -14,16 +20,19 @@ const HomePage = () => {
 			</section>
 			<section className={styles.home__get}>
 				<AppContainer>
-					<ErrorBoundary>
-						<GetSectionContainer />
-					</ErrorBoundary>
+					<GetSection
+						getTitle="Working with GET request"
+						users={users}
+						onFetchMore={onFetchMore}
+						isDataFetching={isDataFetching}
+						isInitDataLoading={isInitDataLoading}
+						hasNextPage={hasNextPage}
+					/>
 				</AppContainer>
 			</section>
 			<section className={styles.home__post}>
 				<AppContainer classes={styles.postContainer}>
-					<ErrorBoundary>
-						<PostSectionContainer />
-					</ErrorBoundary>
+					<PostSection {...postSectonProps} />
 				</AppContainer>
 			</section>
 		</div>

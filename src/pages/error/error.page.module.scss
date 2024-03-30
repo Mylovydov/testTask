@@ -1,20 +1,16 @@
 .errorPage {
-    display: flex;
-    flex-direction: column;
-}
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
 
-.errorImg {
-    flex: 0 1 40rem;
-    display: flex;
-}
+	&__errorImg {
+		flex: 0 1 40rem;
+		display: flex;
+		margin: 0 auto;
+	}
 
-.errorImg svg {
-    max-width: 50rem;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-.errorBody {
-    flex: 1 1 auto;
+	&__errorBody {
+		flex: 1 1 auto;
+	}
 }

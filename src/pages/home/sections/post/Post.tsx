@@ -4,17 +4,17 @@ import { EmptyState, PostForm, Spinner, Typography } from '@/components';
 import { TPostSectionProps } from '@/pages';
 
 const PostSection: FC<TPostSectionProps> = ({
-	title,
+	postTitle,
 	isPositionsLoading,
 	options = [],
 	...rest
 }) => {
 	const hasItems = !!options.length;
 
-	const titleMarkup = title && (
+	const titleMarkup = postTitle && (
 		<div className={styles.post__title}>
 			<Typography variant="h1" textAlign="center">
-				{title}
+				{postTitle}
 			</Typography>
 		</div>
 	);
@@ -26,7 +26,6 @@ const PostSection: FC<TPostSectionProps> = ({
 	const formMarkup = !isPositionsLoading && hasItems && (
 		<PostForm options={options} {...rest} />
 	);
-
 	return (
 		<div className={styles.post}>
 			{titleMarkup}

@@ -1,5 +1,5 @@
 import { TPostFormProps } from '@/components';
 
 export type TPostSectionProps = {
-	title?: string;
+	postTitle?: string;
 } & TPostFormProps;

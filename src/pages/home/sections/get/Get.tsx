@@ -12,14 +12,14 @@ import {
 import { TGetSectionProps } from '@/pages';
 
 const GetSection: FC<TGetSectionProps> = ({
-	items = [],
+	users = [],
 	onFetchMore,
 	isDataFetching = false,
 	isInitDataLoading = false,
 	hasNextPage = false,
-	title
+	getTitle
 }) => {
-	const hasItems = !!items.length;
+	const hasItems = !!users.length;
 
 	const buttonMarkup = hasItems && hasNextPage && (
 		<div className={styles.get__action}>
@@ -37,16 +37,16 @@ const GetSection: FC<TGetSectionProps> = ({
 	);
 	const userItemsMarkup = !isInitDataLoading && hasItems && (
 		<RenderList<TUserItemProps>
-			items={items}
+			items={users}
 			listClassName={styles.getGrid}
 			itemClassName={styles.getGrid__item}
 			Component={UserItem}
 		/>
 	);
-	const titleMarkup = title && (
+	const titleMarkup = getTitle && (
 		<div className={styles.get__title}>
 			<Typography variant="h1" textAlign="center">
-				{title}
+				{getTitle}
 			</Typography>
 		</div>
 	);
@@ -54,6 +54,7 @@ const GetSection: FC<TGetSectionProps> = ({
 	return (
 		<div className={styles.get}>
 			{titleMarkup}
+
 			<div className={styles.get__body}>
 				{spinnerMarkup}
 				{emptyStateMarkup}
