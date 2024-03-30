@@ -1,0 +1,45 @@
+// COLORS
+$color-white: #fff;
+$color-black: #1b1b1b;
+$color-primary: #f4e041;
+$color-secondary: #00bdd3;
+$color-error: #cb3d40;
+$color-bg: #f8f8f8;
+$color-grey: #d0cfcf;
+$color-dark-grey: #7e7e7e;
+
+$color-btn-hover: #ffe302;
+$color-btn-disabled: #b4b4b4;
+
+// FONT
+$font-line-height-heading: 100%;
+$font-line-height-text: 162.5%;
+$font-weight-regular: 400;
+
+$font-size-h1: 4rem;
+$font-size-body: 1.6rem;
+$font-size-caption: 1.2rem;
+
+// Z-INDEX
+$z-index-header: 100;
+
+// BORDER
+$border-button-radius: 8rem;
+$border-sm-radius: 1rem;
+$border-input-radius: 0.4rem;
+
+// TRANSITIONS
+$transition-delay-250: 250ms;
+$transition-delay-400: 400ms;
+$transition-fn-main: ease;
+
+// BREAKPOINTS
+$breakpoint-xs: 319.9px;
+$breakpoint-sm: 479.9px;
+$breakpoint-md: 767.9px;
+$breakpoint-lg: 991.9px;
+$breakpoint-xl: 1199.9px;
+$breakpoint-xxl: 1023.9px;
+
+// OTHER
+$header-height: 6rem;

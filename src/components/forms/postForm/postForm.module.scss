@@ -1,0 +1,31 @@
+.postForm {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+
+	&__body {
+	}
+	&__action {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+
+	&__radio {
+		margin-top: 2.5rem;
+	}
+
+	&__file {
+		margin-top: 4.7rem;
+	}
+}

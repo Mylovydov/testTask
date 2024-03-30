@@ -1,0 +1,14 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.post {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+
+	&__title {
+	}
+
+	&__body {
+	}
+}

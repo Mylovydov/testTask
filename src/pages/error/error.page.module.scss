@@ -1,0 +1,16 @@
+.errorPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
+
+	&__errorImg {
+		flex: 0 1 40rem;
+		display: flex;
+		margin: 0 auto;
+	}
+
+	&__errorBody {
+		flex: 1 1 auto;
+	}
+}

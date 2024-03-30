@@ -1,0 +1,20 @@
+@import 'src/styles/variables';
+
+.fieldControl {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	&___input {
+	}
+
+	&__helperText,
+	&__error {
+		padding: 0 1.6rem;
+	}
+	&__error {
+		color: $color-error;
+	}
+	&__helperText {
+		color: $color-dark-grey;
+	}
+}

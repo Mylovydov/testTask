@@ -1,0 +1,39 @@
+@import 'src/styles/variables';
+
+.button {
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: $border-button-radius;
+  border: none;
+  cursor: pointer;
+  background-color: $color-primary;
+  position: relative;
+  z-index: 1;
+  transition: background-color $transition-delay-250 $transition-fn-main;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $color-btn-hover;
+  }
+
+  &:disabled {
+    background-color: $color-btn-disabled;
+    color: $color-white;
+    cursor: auto;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.medium {
+    height: 3.4rem;
+    padding: 0 2.3rem;
+  }
+}

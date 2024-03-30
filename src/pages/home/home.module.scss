@@ -1,0 +1,28 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.home {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 14rem;
+	padding-bottom: 10rem;
+
+	&__main {
+	}
+	&__get {
+	}
+	&__post {
+	}
+}
+
+.postContainer {
+	max-width: 50rem;
+}
+
+.mainContainer {
+	@include useMedia('max-width', $breakpoint-xxl) {
+		padding: 0;
+		max-width: none;
+	}
+}

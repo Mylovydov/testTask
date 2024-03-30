@@ -43,7 +43,10 @@ export function buildLoaders(options: TBuildOptions): ModuleOptions['rules'] {
 					'@babel/preset-env',
 					'@babel/preset-typescript',
 					['@babel/preset-react', { runtime: isDev ? 'automatic' : 'classic' }]
-				]
+				],
+				plugins: [isDev && require.resolve('react-refresh/babel')].filter(
+					Boolean
+				)
 			}
 		}
 	};

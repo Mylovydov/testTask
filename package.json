@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "start": "webpack serve --env port=3001 mode=development"
+    "start": "webpack serve --env port=3001"
   },
   "keywords": [],
   "author": "",
@@ -43,11 +43,18 @@
     "webpack": "^5.90.3",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^3.11.3"
+    "webpack-dev-server": "^5.0.3"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@tanstack/react-query": "^5.28.6",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-hook-form": "^7.51.1",
+    "react-router-dom": "^6.22.3",
+    "zod": "^3.22.4"
   }
 }

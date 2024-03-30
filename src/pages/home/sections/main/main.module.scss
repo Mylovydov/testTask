@@ -1,0 +1,63 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.main {
+	position: relative;
+	min-height: 65rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include useMedia('max-width', $breakpoint-md) {
+		min-height: 50rem;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 1;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__content {
+		position: relative;
+		z-index: 2;
+		max-width: 41.2rem;
+		padding: 0 1.6rem;
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	&__action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
