@@ -24,6 +24,9 @@ export function buildPlugins({
 		}),
 		new webpack.DefinePlugin({
 			'process.env': JSON.stringify(process.env)
+		}),
+		new webpack.ProvidePlugin({
+			React: 'react'
 		})
 	];
 

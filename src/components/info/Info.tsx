@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { TInfoProps, Typography } from '@/components';
 import styles from './info.module.scss';
 

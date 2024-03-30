@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { TButtonProps, Typography } from '@/components';
 import styles from './button.module.scss';
 import { getClassName } from '@/utils';

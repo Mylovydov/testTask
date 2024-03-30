@@ -1,4 +1,3 @@
-import React from 'react';
 import { TRenderListProps } from '@/components';
 
 const RenderList = <ComponentProps extends object>({

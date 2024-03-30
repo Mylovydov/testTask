@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { TEmptyStateProps, Typography } from '@/components';
 import styles from './emptyState.module.scss';
 

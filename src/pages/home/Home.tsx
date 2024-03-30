@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './home.module.scss';
 import { GetSection, MainSection, PostSection, THomePageProps } from '@/pages';
 import { AppContainer } from '@/components';

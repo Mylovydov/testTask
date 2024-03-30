@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './avatar.module.scss';
 import { getClassName } from '@/utils';
 import { TAvatarProps, Typography } from '@/components';

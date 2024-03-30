@@ -6,7 +6,8 @@
   "scripts": {
     "build:dev": "webpack --env mode=development",
     "build": "webpack --env mode=production",
-    "dev": "webpack serve --env port=3001"
+    "dev": "webpack serve --env port=3001",
+    "start": "serve -s build"
   },
   "keywords": [],
   "author": "",
@@ -55,6 +56,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.1",
     "react-router-dom": "^6.22.3",
+    "serve": "^14.2.1",
     "zod": "^3.22.4"
   }
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './appContainer.module.scss';
 import { TAppContainerProps } from '@/components';
 import { getClassName } from '@/utils';

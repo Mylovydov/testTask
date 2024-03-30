@@ -1,5 +1,5 @@
 import styles from './header.module.scss';
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { HeaderActionsList, HeaderProps } from '@/components';
 import LogoImg from '@/assets/logo.svg';
 import { Link } from 'react-router-dom';
