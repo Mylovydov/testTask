@@ -9,7 +9,7 @@ const HomePage: FC<THomePageProps> = ({
 	isDataFetching,
 	isInitDataLoading,
 	hasNextPage,
-	...postSectonProps
+	...postSectionProps
 }) => {
 	return (
 		<div className={styles.home}>
@@ -32,7 +32,7 @@ const HomePage: FC<THomePageProps> = ({
 			</section>
 			<section className={styles.home__post}>
 				<AppContainer classes={styles.postContainer}>
-					<PostSection {...postSectonProps} />
+					<PostSection {...postSectionProps} />
 				</AppContainer>
 			</section>
 		</div>
