@@ -20,19 +20,19 @@ const PostSection: FC<TPostSectionProps> = ({
 	);
 
 	const spinnerMarkup = isPositionsLoading && <Spinner />;
-
-	const formMarkup =
-		!isPositionsLoading && hasItems ? (
-			<PostForm options={options} {...rest} />
-		) : (
-			<EmptyState title="No positions found" />
-		);
+	const emptyStateMarkup = !isPositionsLoading && !hasItems && (
+		<EmptyState title="No positions found" />
+	);
+	const formMarkup = !isPositionsLoading && hasItems && (
+		<PostForm options={options} {...rest} />
+	);
 
 	return (
 		<div className={styles.post}>
 			{titleMarkup}
 			<div className={styles.post__body}>
 				{spinnerMarkup}
+				{emptyStateMarkup}
 				{formMarkup}
 			</div>
 		</div>

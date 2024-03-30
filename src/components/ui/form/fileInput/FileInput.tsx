@@ -1,12 +1,9 @@
-import React, { ChangeEvent, FC, forwardRef, useId, useRef } from 'react';
+import React, { ChangeEvent, forwardRef, useId, useRef } from 'react';
 import styles from './fileInput.module.scss';
 import { FieldControl, TFileInputProps, Typography } from '@/components';
 import { getClassName } from '@/utils';
 
-const FileInput: FC<TFileInputProps> = forwardRef<
-	HTMLInputElement,
-	TFileInputProps
->(
+const FileInput = forwardRef<HTMLInputElement, TFileInputProps>(
 	(
 		{
 			helperText,
@@ -14,9 +11,9 @@ const FileInput: FC<TFileInputProps> = forwardRef<
 			label,
 			id,
 			accept = 'image/*',
+			file,
 			btnLabel = 'Upload',
 			onChange,
-			file,
 			...rest
 		},
 		ref
@@ -25,7 +22,11 @@ const FileInput: FC<TFileInputProps> = forwardRef<
 		const customId = useId();
 		const inputId = id || customId;
 
-		const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+			const files = event.target.files;
+			if (!files) {
+				return;
+			}
 			onChange && onChange(event);
 		};
 
@@ -63,7 +64,7 @@ const FileInput: FC<TFileInputProps> = forwardRef<
 						accept={accept}
 						type="file"
 						id={inputId}
-						onChange={handleChange}
+						onChange={handleFileChange}
 						className={styles.fileInput__input}
 					/>
 					<button

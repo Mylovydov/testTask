@@ -3,7 +3,9 @@ import styles from './get.module.scss';
 import {
 	Button,
 	EmptyState,
+	RenderList,
 	Spinner,
+	TUserItemProps,
 	Typography,
 	UserItem
 } from '@/components';
@@ -30,20 +32,17 @@ const GetSection: FC<TGetSectionProps> = ({
 	);
 
 	const spinnerMarkup = isInitDataLoading && <Spinner />;
-
-	const userItemsMarkup =
-		!isInitDataLoading && hasItems ? (
-			<ul className={styles.getGrid}>
-				{items.map(item => (
-					<li className={styles.getGrid__item} key={item.id}>
-						<UserItem {...item} />
-					</li>
-				))}
-			</ul>
-		) : (
-			<EmptyState title="No users found" />
-		);
-
+	const emptyStateMarkup = !isInitDataLoading && !hasItems && (
+		<EmptyState title="No users found" />
+	);
+	const userItemsMarkup = !isInitDataLoading && hasItems && (
+		<RenderList<TUserItemProps>
+			items={items}
+			listClassName={styles.getGrid}
+			itemClassName={styles.getGrid__item}
+			Component={UserItem}
+		/>
+	);
 	const titleMarkup = title && (
 		<div className={styles.get__title}>
 			<Typography variant="h1" textAlign="center">
@@ -57,6 +56,7 @@ const GetSection: FC<TGetSectionProps> = ({
 			{titleMarkup}
 			<div className={styles.get__body}>
 				{spinnerMarkup}
+				{emptyStateMarkup}
 				{userItemsMarkup}
 			</div>
 			{buttonMarkup}

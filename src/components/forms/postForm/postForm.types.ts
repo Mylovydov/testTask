@@ -5,7 +5,7 @@ export type TPostFormValues = {
 	email: string;
 	phone: string;
 	positionId: string;
-	photo: FileList | null;
+	photo: File | null;
 };
 
 export type TPostFormProps = {

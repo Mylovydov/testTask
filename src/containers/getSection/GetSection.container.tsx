@@ -5,6 +5,8 @@ import { usersService } from '@/services';
 import { mergeUsers, sortUsersByRegistrationTimestamp } from '@/utils';
 import { useNotifyContext } from '@/hooks';
 
+const initialPage = '1';
+
 const GetSectionContainer = () => {
 	const { open } = useNotifyContext();
 	const {
@@ -18,7 +20,7 @@ const GetSectionContainer = () => {
 	} = useInfiniteQuery({
 		queryKey: [usersService.cacheKey],
 		queryFn: usersService.fetchUsers,
-		initialPageParam: '1',
+		initialPageParam: initialPage,
 		getNextPageParam: lastPage => {
 			if (!lastPage.nextPageUrl) {
 				return null;

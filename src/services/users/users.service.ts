@@ -60,7 +60,7 @@ class UsersService {
 			formData.append('email', data.email);
 			formData.append('phone', data.phone);
 			formData.append('position_id', data.positionId);
-			data.photo && formData.append('photo', data.photo[0]);
+			data.photo && formData.append('photo', data.photo);
 
 			const { token } = await this.getToken();
 			if (!token) {

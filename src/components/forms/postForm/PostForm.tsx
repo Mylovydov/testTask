@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { FC } from 'react';
 import styles from './postForm.module.scss';
 import {
 	Button,
@@ -19,7 +19,6 @@ const PostForm: FC<TPostFormProps> = ({
 	isLoading,
 	options = []
 }) => {
-	const [file, setFile] = useState<File | null>(null);
 	const {
 		formState: { errors },
 		handleSubmit,
@@ -34,16 +33,6 @@ const PostForm: FC<TPostFormProps> = ({
 	const onHandleSubmit = (data: TPostFormValues) => {
 		onSubmit && onSubmit(data);
 		reset();
-		setFile(null);
-	};
-
-	const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-		const selectedFile = event.target.files?.[0];
-		if (!selectedFile) {
-			return;
-		}
-
-		setFile(selectedFile);
 	};
 
 	return (
@@ -97,16 +86,24 @@ const PostForm: FC<TPostFormProps> = ({
 						/>
 					</div>
 					<div className={styles.inputs__file}>
-						<FileInput
-							file={file}
-							label="Upload your photo"
-							accept="image/jpg, image/jpeg"
-							error={errors.photo?.message}
-							{...register('photo', {
-								onChange: event => {
-									handleFileChange(event);
-								}
-							})}
+						<Controller
+							control={control}
+							render={({ field: { value, onChange, ...field } }) => (
+								<FileInput
+									{...field}
+									label="Upload your photo"
+									accept="image/jpg, image/jpeg"
+									error={errors.photo?.message}
+									file={value}
+									onChange={event => {
+										const file = event.target.files;
+										if (file) {
+											onChange(file[0]);
+										}
+									}}
+								/>
+							)}
+							name="photo"
 						/>
 					</div>
 				</div>
