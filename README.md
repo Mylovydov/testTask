@@ -1,4 +1,4 @@
-# Test task for abz.agency
+# Test task
 
 ## Description
 The build folder has been added to the repository to speed up the deploy process. Otherwise, adding it to the repository is not correct
